@@ -1,7 +1,7 @@
 FROM l3iggs/archlinux
 
 ADD aurupload/aurupload /usr/bin/
-RUN pacman -Sy --noconfirm --needed sudo git && rm /var/cache/pacman/pkg/* /var/lib/pacman/sync/*
+RUN pacman -Sy --noconfirm --needed base-devel git && rm /var/cache/pacman/pkg/* /var/lib/pacman/sync/*
 RUN useradd -m -G wheel docker \
   && sed -i 's/# %wheel ALL=(ALL) NOPASSWD: ALL/%wheel ALL=(ALL) NOPASSWD: ALL/g' /etc/sudoers
 
