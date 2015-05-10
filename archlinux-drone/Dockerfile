@@ -1,4 +1,4 @@
-FROM l3iggs/archlinux
+FROM nfnty/arch-mini
 
 ADD aurupload/aurupload /usr/bin/
 RUN pacman -Sy --noconfirm --needed base-devel git && rm /var/cache/pacman/pkg/* /var/lib/pacman/sync/*
