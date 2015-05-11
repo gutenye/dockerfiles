@@ -1,3 +1,3 @@
 [submodule "archlinux-drone/aurupload"]
-	path = drone/archlinux/aurupload
+	path = archlinux-aur/aurupload
 	url = git@github.com:gutenye/aurupload.git
