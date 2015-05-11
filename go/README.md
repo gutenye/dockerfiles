@@ -1,3 +1,7 @@
-Based on bradrydzewski/go:1.3
+Go, Build Go Source
+===================
 
-Add zip, rice
+**Added**
+
+- zip
+- rice
