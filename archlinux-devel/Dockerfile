@@ -9,6 +9,6 @@ RUN sed -i 's/#RemoteFileSigLevel = Required/RemoteFileSigLevel = Optional/' /et
 USER docker
 WORKDIR /home/docker
 
+COPY pacaur.conf /etc/xdg/pacaur/config
 RUN pacaur -S --noconfirm gutaur \
   && echo -e "y\ny" | pacman -Scc \
-COPY pacaur.conf /etc/xdg/pacaur/config
