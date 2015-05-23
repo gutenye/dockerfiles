@@ -1,6 +1,6 @@
-Archlinux-AUR, build and upload AUR source tarball
-==================================================
+archlinux-devel, build and upload AUR source tarball
+====================================================
 
 **Added**
 
-- aurupload: AUR_USERNAME, AUR_PASSWORD
+- aurupload: `AUR_USERNAME`, `AUR_PASSWORD`
