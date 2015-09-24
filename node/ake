@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+
+## publish: git push github. It uses automated build.
+
+NAME="gutenye/node"
+docker build -t "$NAME" .
