@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+
+NAME="gutenye/rethinkdb"
+docker build -t "$NAME" .

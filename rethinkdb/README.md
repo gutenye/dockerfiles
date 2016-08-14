@@ -1,0 +1,1 @@
+- Added `rethikdb restore` command
