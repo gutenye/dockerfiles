@@ -1,4 +1,6 @@
 FROM node
 
-RUN npm install -g bower webpack webpack-dev-server gulp grunt
-  && rm -rf /root/.npm
+COPY npmrc /root/.npmrc
+
+RUN mkdir -p /app
+WORKDIR /app
