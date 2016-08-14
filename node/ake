@@ -1,3 +1,4 @@
 #!/usr/bin/env bash
 
-docker build -t gutenye/node .
+NAME="gutenye/node"
+docker build -t "$NAME" .
