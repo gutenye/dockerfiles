@@ -1,5 +1,17 @@
 Guten's Node Enviromment
 =========================
 
-1. use npm.taobao.com China mirror
-2. add nodemon, webpack, webpack-dev-server, gulp, grunt
+- USE npm.taobao.com China mirror
+- ADD vim
+
+Dockerfile
+
+```
+FROM gutenye/node
+
+COPY package.json /app
+RUN npm install
+COPY . /app
+
+CMD [ "npm", "start" ]
+```
