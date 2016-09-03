@@ -6,5 +6,5 @@ RUN mkdir -p /app
 WORKDIR /app
 
 RUN apt-get update && \
-    apt-get install -y vim-tiny && \
+    apt-get install -y vim-tiny curl && \
     rm -rf /var/lib/apt/lists/*
