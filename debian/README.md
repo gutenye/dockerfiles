@@ -1,1 +1,1 @@
-add ssh
+- Add ssh, curl, httpie
