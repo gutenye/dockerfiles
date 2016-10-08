@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+
+NAME="gutenye/mariadb"
+docker build -t "$NAME" .
