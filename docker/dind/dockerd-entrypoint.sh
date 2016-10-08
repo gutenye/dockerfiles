@@ -16,7 +16,7 @@ fi
 if [ "$1" = 'docker' -a "$2" = 'daemon' ]; then
 	# if we're running Docker, let's pipe through dind
 	# (and we'll run dind explicitly with "sh" since its shebang is /bin/bash)
-	set -- sh "$(which dind)" "${DOCKER_DAEMON_ARGS}" "$@"
+	set -- sh "$(which dind)" "$@"
 fi
 
 exec "$@"
