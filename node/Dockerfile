@@ -12,3 +12,6 @@ COPY npmrc /root/.npmrc
 RUN apt-get update && \
     apt-get install -y vim-tiny curl && \
     rm -rf /var/lib/apt/lists/*
+
+RUN npm install -g yarn && \
+  rm -rf /root/.npm
