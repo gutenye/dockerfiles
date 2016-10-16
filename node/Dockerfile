@@ -11,6 +11,7 @@ RUN npm install -g yarn && \
   rm -rf /root/.npm
 
 COPY npmrc /root/.npmrc
+COPY yarnrc /root/.yarnrc
 
 RUN apt-get update && \
     apt-get install -y vim-tiny curl && \
