@@ -2,6 +2,7 @@ Guten's Node Enviromment
 =========================
 
 - USE npm.taobao.com China mirror
+- yarn
 - vim
 - curl
 
