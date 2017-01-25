@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+
+push() {
+  git tag -f $NAME
+  git push --tags -f
+}
+
+case "$1" in
+  push ) shift; push "$@" ;;
+esac
