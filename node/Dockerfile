@@ -7,12 +7,15 @@ ENV LANGUAGE=C.UTF-8
 RUN mkdir -p /app
 WORKDIR /app
 
-RUN npm install -g yarn && \
-  rm -rf /root/.npm
-
 COPY npmrc /root/.npmrc
 COPY yarnrc /root/.yarnrc
 
+#RUN npm install -g yarn && \
+#  rm -rf /root/.npm
+
+run curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | sudo apt-key add - && \
+    echo "deb https://dl.yarnpkg.com/debian/ stable main" | sudo tee /etc/apt/sources.list.d/yarn.list
+
 RUN apt-get update && \
-    apt-get install -y vim-tiny curl && \
+    apt-get install -y yarn vim-tiny curl && \
     rm -rf /var/lib/apt/lists/*
