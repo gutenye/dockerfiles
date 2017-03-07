@@ -3,6 +3,9 @@ FROM node
 ENV LC_ALL=C.UTF-8
 ENV LANG=C.UTF-8
 ENV LANGUAGE=C.UTF-8
+ENV SASS_BINARY_SITE=http://npm.taobao.org/mirrors/node-sass
+ENV SQLITE3_BINARY_SITE=http://npm.taobao.org/mirrors/sqlite3
+ENV ELECTRON_MIRROR=http://npm.taobao.org/mirrors/electron
 
 RUN mkdir -p /app
 WORKDIR /app
