@@ -16,6 +16,8 @@ RUN npm config set electron_mirror http://cdn.npm.taobao.org/dist/electron/
 RUN mkdir -p /app
 WORKDIR /app
 
+RUN npm install -g bower
+
 RUN apt-get update && \
     apt-get install -y apt-transport-https
 

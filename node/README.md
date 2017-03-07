@@ -5,6 +5,7 @@ Guten's Node Enviromment
 - yarn
 - vim
 - curl
+- bower
 
 Dockerfile
 
