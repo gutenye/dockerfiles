@@ -6,15 +6,6 @@ ENV LANGUAGE=C.UTF-8
 
 COPY ssh/config /root/.ssh/config
 
-RUN npm config set registry https://registry.npm.taobao.org
-RUN npm config set disturl https://npm.taobao.org/dist
-RUN npm config set chromedriver_cdnurl http://cdn.npm.taobao.org/dist/chromedriver
-RUN npm config set operadriver_cdnurl http://cdn.npm.taobao.org/dist/operadriver
-RUN npm config set phantomjs_cdnurl http://cdn.npm.taobao.org/dist/phantomjs
-RUN npm config set fse_binary_host_mirror https://npm.taobao.org/mirrors/fsevents
-RUN npm config set sass_binary_site http://cdn.npm.taobao.org/dist/node-sass
-RUN npm config set electron_mirror http://cdn.npm.taobao.org/dist/electron/
-
 RUN mkdir -p /app
 WORKDIR /app
 
@@ -29,3 +20,12 @@ RUN curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | apt-key add - && \
 RUN apt-get update && \
     apt-get install -y yarn vim-tiny curl && \
     rm -rf /var/lib/apt/lists/*
+
+RUN npm config set registry https://registry.npm.taobao.org
+RUN npm config set disturl https://npm.taobao.org/dist
+RUN npm config set chromedriver_cdnurl http://cdn.npm.taobao.org/dist/chromedriver
+RUN npm config set operadriver_cdnurl http://cdn.npm.taobao.org/dist/operadriver
+RUN npm config set phantomjs_cdnurl http://cdn.npm.taobao.org/dist/phantomjs
+RUN npm config set fse_binary_host_mirror https://npm.taobao.org/mirrors/fsevents
+RUN npm config set sass_binary_site http://cdn.npm.taobao.org/dist/node-sass
+RUN npm config set electron_mirror http://cdn.npm.taobao.org/dist/electron/
