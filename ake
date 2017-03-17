@@ -1,8 +1,8 @@
 #!/usr/bin/env bash
 
 push() {
-  git tag -f $NAME
-  git push --tags -f
+  echo $NAME
+  git push origin master:$NAME
 }
 
 case "$1" in
