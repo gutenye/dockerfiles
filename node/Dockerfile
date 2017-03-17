@@ -4,6 +4,8 @@ ENV LC_ALL=C.UTF-8
 ENV LANG=C.UTF-8
 ENV LANGUAGE=C.UTF-8
 
+COPY ssh/config /root/.ssh/config
+
 RUN npm config set registry https://registry.npm.taobao.org
 RUN npm config set disturl https://npm.taobao.org/dist
 RUN npm config set chromedriver_cdnurl http://cdn.npm.taobao.org/dist/chromedriver
@@ -13,7 +15,6 @@ RUN npm config set fse_binary_host_mirror https://npm.taobao.org/mirrors/fsevent
 RUN npm config set sass_binary_site http://cdn.npm.taobao.org/dist/node-sass
 RUN npm config set electron_mirror http://cdn.npm.taobao.org/dist/electron/
 
-RUN mkdir -p /root/.ssh
 RUN mkdir -p /app
 WORKDIR /app
 
