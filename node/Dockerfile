@@ -13,6 +13,7 @@ RUN npm config set fse_binary_host_mirror https://npm.taobao.org/mirrors/fsevent
 RUN npm config set sass_binary_site http://cdn.npm.taobao.org/dist/node-sass
 RUN npm config set electron_mirror http://cdn.npm.taobao.org/dist/electron/
 
+RUN mkdir -p /root/.ssh
 RUN mkdir -p /app
 WORKDIR /app
 
