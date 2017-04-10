@@ -1,22 +1,22 @@
 FROM ruby
 
-RUN sed -i s/deb.debian.org/ftp.cn.debian.org/g /etc/apt/sources.list
+#RUN sed -i s/deb.debian.org/ftp.cn.debian.org/g /etc/apt/sources.list
 
 RUN apt-get update && apt-get install -yq \
-    git \
-    nodejs \
+    #git \
+    #nodejs \
     imagemagick \
-    libsqlite3-dev \
-    sqlite3 \
+    #libsqlite3-dev #sqlite3
     libmysqlclient-dev
+    # libpq-dev
 
 RUN echo "gem: --no-rdoc --no-ri" >> ~/.gemrc
 #RUN gem sources --remove https://rubygems.org/ && gem sources -a http://mirrors.aliyun.com/rubygems/
 
 RUN gem install rails -v 5.0.2
-RUN rails _5.0.2_ new /app -d mysql --skip-bundle
-# empty is sqlite3
+RUN rails _5.0.2_ new /app -d mysql --skip-bundl
 # -d mysql
+# -d postgresql
 
 WORKDIR /app
 
