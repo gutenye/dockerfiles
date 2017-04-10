@@ -7,17 +7,20 @@ RUN apt-get update && apt-get install -yq \
     nodejs \
     imagemagick \
     libsqlite3-dev \
-    sqlite3
+    sqlite3 \
+    libmysqlclient-dev
 
 RUN echo "gem: --no-rdoc --no-ri" >> ~/.gemrc
-RUN gem sources --remove https://rubygems.org/ && gem sources -a http://mirrors.aliyun.com/rubygems/
+#RUN gem sources --remove https://rubygems.org/ && gem sources -a http://mirrors.aliyun.com/rubygems/
 
 RUN gem install rails -v 5.0.2
-RUN rails _5.0.2_ new /app --skip-bundle
+RUN rails _5.0.2_ new /app -d mysql --skip-bundle
+# empty is sqlite3
+# -d mysql
 
 WORKDIR /app
 
-RUN sed -i "1s~.*~source 'http://mirrors.aliyun.com/rubygems'~" Gemfile
+#RUN sed -i "1s~.*~source 'http://mirrors.aliyun.com/rubygems'~" Gemfile
 
 RUN echo "gem 'spree', '~> 3.2.0'" >> Gemfile
 RUN echo "gem 'spree_auth_devise', '~> 3.2.0.beta'" >> Gemfile
@@ -32,5 +35,4 @@ EXPOSE 80
 
 ENTRYPOINT [ "bin/bundle", "exec" ]
 
-CMD [ "rails", "server", "-b", "0.0.0.0", "-p", "80" ]
-# -e production
+CMD [ "rails", "server", "-b", "0.0.0.0", "-p", "80", "-e", "production" ]
