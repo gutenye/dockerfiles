@@ -1,9 +1,14 @@
 #!/usr/bin/env bash
 
+build() {
+  docker build -t $NAME .
+}
+
 push() {
   git push origin master:$NAME
 }
 
 case "$1" in
+  b | build ) shift; build "$@" ;;
   push ) shift; push "$@" ;;
 esac
