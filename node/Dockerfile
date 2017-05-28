@@ -12,7 +12,7 @@ RUN apt-get update && \
     apt-get install -y yarn vim-tiny curl && \
     rm -rf /var/lib/apt/lists/*
 
-RUN npm install -g bower
+RUN npm install -g bower node-gyp
 
 RUN mkdir -p /app
 WORKDIR /app
