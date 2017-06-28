@@ -5,3 +5,5 @@ RUN apt-get update && \
     rm -rf /var/lib/apt/lists/*
 
 COPY ssh/config /root/.ssh/config
+
+COPY deploy /usr/bin

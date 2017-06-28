@@ -1,2 +1,3 @@
-add ssh
-ssh disable StrictHostKeyChecking
+- install ssh
+- add ssh disable StrictHostKeyChecking
+- add deploy script
