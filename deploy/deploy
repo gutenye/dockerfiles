@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+
+DEFAULT_SERVER=root@139.129.234.52
+SERVER=${SERVER-$DEFAULT_SERVER}
