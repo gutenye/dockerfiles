@@ -1,5 +1,0 @@
-#!/usr/bin/env bash
-
-export NAME="node"
-
-../ake "$@"
