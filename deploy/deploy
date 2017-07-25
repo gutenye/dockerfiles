@@ -1,10 +1,10 @@
 #!/usr/bin/env bash
 
-DEFAULT_SERVER=root@139.129.234.52
+DEFAULT_PORT=22
 
 project=$1
-SERVER=${SERVER-$DEFAULT_SERVER}
+PORT=${2-DEFAULT_PORT}
 
 echo "$SSH_PRIVATE_KEY" > /root/.ssh/id_rsa && chmod 600 /root/.ssh/id_rsa
-ssh $SERVER "cd /app/$project && docker-compose pull"
-ssh $SERVER "cd /app/$project && docker-compose up -d && docker-compose restart"
+ssh -p $PORT $SERVER "cd /app/$project && docker-compose pull"
+ssh -p $PORT $SERVER "cd /app/$project && docker-compose up -d && docker-compose restart"
