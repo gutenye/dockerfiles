@@ -1,15 +1,15 @@
 #!/usr/bin/env sh
 
+# build-image gutenwork/hello-web
+
 DEFAULT_DOCKER_USERNAME=ywzhaifei@gmail.com
 DEFAULT_DOCKER_REGISTRY=registry.cn-hangzhou.aliyuncs.com
-DEFAULT_DOCKER_REGISTRY_USERNAME=gutenye
 
 project=$1
 DOCKER_USERNAME=${DOCKER_USERNAME-$DEFAULT_DOCKER_USERNAME}
 DOCKER_REGISTRY=${DOCKER_REGISTRY-$DEFAULT_DOCKER_REGISTRY}
-DOCKER_REGISTRY_USERNAME=${DOCKER_REGISTRY_USERNAME-$DEFAULT_DOCKER_REGISTRY_USERNAME}
 
 docker build -t $project -f docker/Dockerfile .
 docker login -u $DOCKER_USERNAME -p $DOCKER_PASSWORD $DOCKER_REGISTRY
-docker tag $project $DOCKER_REGISTRY/$DOCKER_REGISTRY_USERNAME/$project
-docker push $DOCKER_REGISTRY/$DOCKER_REGISTRY_USERNAME/$project
+docker tag $project $DOCKER_REGISTRY/$project
+docker push $DOCKER_REGISTRY/$project
