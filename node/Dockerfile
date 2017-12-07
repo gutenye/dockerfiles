@@ -8,8 +8,9 @@ RUN apt-get update && \
     apt-get install -y apt-transport-https && \
     curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | apt-key add - && \
     echo "deb https://dl.yarnpkg.com/debian/ stable main" | tee /etc/apt/sources.list.d/yarn.list && \
+    echo "deb http://deb.debian.org/debian jessie-backports main" | tee /etc/apt/sources.list.d/backports.list && \
     apt-get update && \
-    apt-get install -y yarn vim-tiny curl && \
+    apt-get install -y yarn vim-tiny curl ffmpeg && \
     rm -rf /var/lib/apt/lists/*
 
 RUN wget -O /usr/local/bin/gosu "https://github.com/tianon/gosu/releases/download/1.10/gosu-amd64" && \
