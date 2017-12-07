@@ -10,9 +10,6 @@ RUN apt-get update && \
     apt-get install -y vim-tiny curl ffmpeg && \
     rm -rf /var/lib/apt/lists/*
 
-RUN wget -O /usr/local/bin/gosu "https://github.com/tianon/gosu/releases/download/1.10/gosu-amd64" && \
-  chmod +x /usr/local/bin/gosu
-
 RUN npm install -g bower node-gyp
 
 RUN mkdir -p /app
@@ -28,7 +25,3 @@ RUN npm config set registry https://registry.npm.taobao.org &&\
   npm config set fse_binary_host_mirror https://npm.taobao.org/mirrors/fsevents && \
   npm config set sass_binary_site http://cdn.npm.taobao.org/dist/node-sass && \
   npm config set electron_mirror http://cdn.npm.taobao.org/dist/electron/
-
-COPY docker-entrypoint.sh /usr/local/bin/
-
-ENTRYPOINT [ "docker-entrypoint.sh" ]
