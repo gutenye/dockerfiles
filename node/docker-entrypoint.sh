@@ -3,8 +3,8 @@
 PUID=${PUID:-9999}
 PGID=${PGID:-9999}
 
-groupmod -o -g "$PGID" user &>/dev/null
-usermod -o -u "$PUID" user &>/dev/null
+groupmod -o -g "$PGID" node &>/dev/null
+usermod -o -u "$PUID" node &>/dev/null
 
-chown user:user /app
-exec gosu user "$@"
+chown node:node /app
+exec gosu node "$@"
