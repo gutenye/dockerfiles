@@ -6,6 +6,7 @@ Guten's Node Enviromment
 - vim
 - curl
 - bower
+- ffmpeg
 
 Dockerfile
 
