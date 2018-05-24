@@ -24,4 +24,5 @@ RUN npm config set registry https://registry.npm.taobao.org &&\
   npm config set phantomjs_cdnurl http://cdn.npm.taobao.org/dist/phantomjs && \
   npm config set fse_binary_host_mirror https://npm.taobao.org/mirrors/fsevents && \
   npm config set sass_binary_site http://cdn.npm.taobao.org/dist/node-sass && \
-  npm config set electron_mirror http://cdn.npm.taobao.org/dist/electron/
+  npm config set electron_mirror http://cdn.npm.taobao.org/dist/electron/ && \
+  npm config set puppeteer_download_host=https://storage.googleapis.com.cnpmjs.org
