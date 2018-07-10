@@ -1,4 +1,4 @@
-FROM arm32v6/alpine:3.7
+FROM hypriot/rpi-alpine:3.6
 
 ARG RTORRENT_VER=0.9.7
 ARG LIBTORRENT_VER=0.13.7

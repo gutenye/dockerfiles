@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
 
-export NAME="rtorrent-flood/arm"
+export NAME="rtorrent-flood"
 
 ../../ake "$@"
