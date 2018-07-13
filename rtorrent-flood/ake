@@ -1,5 +1,15 @@
 #!/usr/bin/env bash
 
-export NAME="rtorrent-flood"
+build() {
+  docker build -t rtorrent-flood:arm .
+}
 
-../../ake "$@"
+push() {
+  git push origin master:rtorrent-flood
+  git push
+}
+
+case "$1" in
+  b | build ) shift; build "$@" ;;
+  push ) shift; push "$@" ;;
+esac

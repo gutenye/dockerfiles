@@ -2,9 +2,16 @@
 - Works with ARM
 - Use `gutenye/rtorrent-flood` multi-arch manifest image for both amd64 and arm devices
 
+### Build ARM
 
+```
+$ Use ASUS Tinker Board S
+$ ./ake build
+```
 
-> argon2@0.19.1 install /usr/flood/node_modules/argon2
-> node-gyp rebuild
+### Multi-arm manifest
 
-ERROR: Job failed: execution took longer than 1h0m0s seconds
+```
+$ docker manifest create gutenye/rtorrent-flood gutenye/rtorrent-flood:arm wonderfall/rtorrent-flood
+$ docker manifest push gutenye/rtorrent-flood
+```
