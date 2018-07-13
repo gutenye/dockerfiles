@@ -1,0 +1,14 @@
+#!/usr/bin/with-contenv bash
+
+# make folders
+mkdir -p /downloads/{completed,incoming,watched} \
+  /app/rtorrent/session
+
+# delete lock file if exists
+[[ -e /app/rtorrent/session/rtorrent.lock ]] && \
+	rm /app/rtorrent/session/rtorrent.lock
+
+# permissions
+chown abc:abc \
+	/downloads \
+	/downloads/{completed,incoming,watched}
