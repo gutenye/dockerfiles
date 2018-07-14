@@ -1,4 +1,4 @@
 #!/bin/sh
 
-cd /usr/flood
+cd /app/flood
 exec npm start

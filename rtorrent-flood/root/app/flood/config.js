@@ -1,8 +1,9 @@
 const CONFIG = {
-  baseURI: process.env.WEBROOT || '/',
+  baseURI: process.env.FLOOD_BASE_URL || '/',
   dbCleanInterval: 1000 * 60 * 60,
-  dbPath: '/db',
-  floodServerPort: 3000,
+  dbPath: '/app/flood/db/',
+  floodServerHost: '0.0.0.0',
+  floodServerPort: 80,
   maxHistoryStates: 30,
   pollInterval: 1000 * 5,
   secret: process.env.FLOOD_SECRET || 'secret',
@@ -10,7 +11,7 @@ const CONFIG = {
     host: 'localhost',
     port: 5000,
     socket: true,
-    socketPath: '/app/rtorrent/rtorrent.sock'
+    socketPath: '/app/rtorrent/session/rpc.sock'
   }
 };
 

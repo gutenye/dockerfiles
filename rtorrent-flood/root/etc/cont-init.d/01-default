@@ -1,0 +1,10 @@
+#!/usr/bin/with-contenv bash
+
+# rtorrent
+rm -f /app/rtorrent/session/rtorrent.lock
+chown abc:abc /app/rtorrent
+chown abc:abc /app/rtorrent/*
+
+# flood
+mkdir -p /app/flood/log
+chown nobody /app/flood/log

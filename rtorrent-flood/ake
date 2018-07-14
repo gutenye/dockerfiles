@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 build() {
-  docker build -t rtorrent-flood:arm .
+  docker build -t gutenye/rtorrent-flood:arm .
 }
 
 push() {
