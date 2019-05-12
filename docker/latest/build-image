@@ -10,7 +10,7 @@ project=$1
 DOCKER_USERNAME=${DOCKER_USERNAME-$DEFAULT_DOCKER_USERNAME}
 DOCKER_REGISTRY=${DOCKER_REGISTRY-$DEFAULT_DOCKER_REGISTRY}
 
-docker build -t $project -f docker/Dockerfile .
+docker build -t $project .
 docker login -u $DOCKER_USERNAME -p $DOCKER_PASSWORD $DOCKER_REGISTRY
 docker tag $project $DOCKER_REGISTRY/$project
 docker push $DOCKER_REGISTRY/$project
