@@ -1,0 +1,7 @@
+services:
+  app:
+    image: gutenye/alpine
+    build:
+      platforms:
+        - linux/arm64
+        - linux/amd64
