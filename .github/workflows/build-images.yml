@@ -1,0 +1,64 @@
+name: Build Images
+
+on:
+  schedule:
+    - cron: '0 3 * * *' # daily at 03:00 UTC
+  workflow_dispatch:
+
+jobs:
+  discover:
+    runs-on: ubuntu-latest
+    outputs:
+      matrix: ${{ steps.gen.outputs.matrix }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v5
+      - name: Find first-level Dockerfiles
+        id: gen
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const nodePath = require('node:path')
+            const globber = await glob.create('*/Dockerfile')
+            const files = await globber.glob()
+            const matrix = files.map(file => ({ name: nodePath.dirname(file) }))
+            core.setOutput('matrix', JSON.stringify(matrix))
+
+  build:
+    needs: discover
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        include: ${{ fromJson(needs.discover.outputs.matrix) }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v5
+
+      - name: Login to Docker Hub
+        uses: docker/login-action@v3
+        with:
+          username: ${{ vars.DOCKERHUB_USERNAME }}
+          password: ${{ secrets.DOCKERHUB_TOKEN }}
+
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v3
+
+      - name: Build and push ${{ matrix.name }}
+        uses: docker/build-push-action@v6
+        with:
+          context: ${{ matrix.name }}
+          tags: gutenye/${{ matrix.name }}:latest
+          platforms: linux/amd64,linux/arm64
+          cache-from: type=registry,ref=gutenye/${{ matrix.name }}:buildcache
+          cache-to: type=registry,ref=gutenye/${{ matrix.name }}:buildcache,mode=max
+          push: true
+
+      - name: Update Docker Hub README
+        uses: peter-evans/dockerhub-description@v4
+        with:
+          repository: gutenye/${{ matrix.name }}
+          readme-filepath: ${{ matrix.name }}/README.md
+          username: ${{ vars.DOCKERHUB_USERNAME }}
+          password: ${{ secrets.DOCKERHUB_TOKEN }}
+
