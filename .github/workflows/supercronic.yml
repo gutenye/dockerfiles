@@ -29,13 +29,13 @@ jobs:
       - name: Build image
         uses: whoan/docker-build-with-cache-action@v5
         with:
-          compose_file: supercronic/compose.yml
+          # compose_file: supercronic/compose.yml
+          context: supercronic
+          image_name: gutenye/supercronic
           username: ${{secrets.DOCKERHUB_USERNAME}}
           password: ${{secrets.DOCKERHUB_TOKEN}}
           # registry: docker.io
-          # image_name: gutenye/supercronic
           # image_tag: latest-${{ matrix.suffix }}
-          # context: supercronic
           # dockerfile: supercronic/Dockerfile
           # build_extra_args: --pull --platform=${{ matrix.platform }}
 
