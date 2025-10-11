@@ -1,10 +1,10 @@
 # alpine
 
-For debugging
+> For debugging
 
-includes
-- curl
+## Changes
 
+- Added curl, ca-certificates, tzdata 
 
 ## Start
 
@@ -17,5 +17,3 @@ docker run --rm gutenye/alpine curl ..
 ```sh
 ./ake push
 ```
-
-

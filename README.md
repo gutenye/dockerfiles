@@ -1,11 +1,3 @@
-Dockerfiles
-===========
+# Dockerfiles
 
-My Docker Images, open each directory for more details.
-
-Development
-------
-
-```
-./ake push
-```
+> My customized docker images with extra packages
