@@ -8,7 +8,7 @@
 
 ## List
 
-| Name                         | Description                |
-| ---------------------------- | -------------------------- |
-| [alpine](./alpine/README.md) | Add curl etc for debugging |
-| [supercronic](./supercronic/README.md) | cron job |
+| Name                                   | Description                |
+| -------------------------------------- | -------------------------- |
+| [Alpine](./alpine/README.md)           | Add curl etc for debugging |
+| [Supercronic](./supercronic/README.md) | cron job                   |
