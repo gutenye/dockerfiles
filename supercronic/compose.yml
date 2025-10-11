@@ -1,0 +1,11 @@
+services:
+  app:
+    image: gutenye/supercronic
+    build:
+      platforms:
+        - linux/arm64
+        - linux/amd64
+    ports:
+      - 3000:80
+    volumes:
+      - ./data/config:/config

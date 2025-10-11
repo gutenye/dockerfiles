@@ -1,0 +1,15 @@
+#!/usr/bin/env script.js
+
+const HELP = `
+`
+
+app
+  .name(PROJECT_NAME)
+  .enableCompletion()
+  .addHelpText('after', HELP.trimEnd())
+
+app
+  .command('publish')
+  .action(async () => {
+    $`docker compose build --push`
+  })

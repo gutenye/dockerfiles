@@ -1,0 +1,51 @@
+{
+	"name": "main",
+	"columns": [
+		{
+			"id": "881058",
+			"name": "raw",
+			"handlerTsCode": "(line: Message): CellHandler => {\n          return { text: line.content || \"-\"}\n      }",
+			"idx": 0,
+			"width": 373,
+			"hidden": true
+		},
+		{
+			"id": "465566",
+			"name": "level",
+			"handlerTsCode": "(line: Message): CellHandler => {\n    return { text: line.json_content['level'] }\n}",
+			"idx": 1,
+			"width": 150,
+			"hidden": true
+		},
+		{
+			"id": "220187",
+			"name": "time",
+			"handlerTsCode": "(line: Message): CellHandler => {\n    return { text: line.json_content['time'] }\n}",
+			"idx": 3,
+			"width": 206
+		},
+		{
+			"id": "905772",
+			"name": "channel",
+			"handlerTsCode": "(line: Message): CellHandler => {\n    return { text: line.json_content[\"channel\"] || \"cron\" }\n}",
+			"faceted": true,
+			"idx": 4,
+			"width": 87,
+			"hidden": false
+		},
+		{
+			"id": "302672",
+			"name": "msg",
+			"handlerTsCode": "(line: Message): CellHandler => {\n    return { text: line.json_content['msg'] }\n}",
+			"idx": 2,
+			"width": 1213
+		}
+	],
+	"settings": {
+		"leftColWidth": 241,
+		"drawerColWidth": 900,
+		"maxMessages": 1000,
+		"middlewares": [],
+		"entriesOrder": "desc"
+	}
+}
