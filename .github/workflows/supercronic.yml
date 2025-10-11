@@ -34,6 +34,7 @@ jobs:
       - name: Update Docker Hub README
         uses: peter-evans/dockerhub-description@v4
         with:
+          repository: gutenye/supercronic
+          readme-filepath: supercronic/README.md
           username: ${{ vars.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_TOKEN }}
-          repository: gutenye/supercronic
