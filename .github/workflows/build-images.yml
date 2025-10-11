@@ -21,7 +21,7 @@ jobs:
             const nodePath = require('node:path')
             const globber = await glob.create('*/Dockerfile')
             const files = await globber.glob()
-            const matrix = files.map(file => ({ name: nodePath.dirname(file) }))
+            const matrix = files.map(file => ({ name: nodePath.basename(file) }))
             core.setOutput('matrix', JSON.stringify(matrix))
 
   build:
