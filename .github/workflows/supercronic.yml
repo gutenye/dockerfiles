@@ -30,3 +30,10 @@ jobs:
           cache-from: type=registry,ref=gutenye/supercronic:buildcache
           cache-to: type=registry,ref=gutenye/supercronic:buildcache,mode=max
           push: true
+
+      - name: Update Docker Hub README
+        uses: peter-evans/dockerhub-description@v4
+        with:
+          username: ${{ vars.DOCKERHUB_USERNAME }}
+          password: ${{ secrets.DOCKERHUB_TOKEN }}
+          repository: gutenye/supercronic
