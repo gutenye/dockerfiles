@@ -27,9 +27,9 @@ jobs:
       #   run: docker compose -f supercronic/compose.yml config -q
 
       - name: Build image
-        uses: whoan/docker-build-with-cache-action@v5
-        env:
-          DOCKER_BUILDKIT: 1
+        uses: whoan/docker-build-with-cache-action@v8
+        # env:
+        #   DOCKER_BUILDKIT: 1
         with:
           # compose_file: supercronic/compose.yml
           context: supercronic
