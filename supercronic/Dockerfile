@@ -2,6 +2,8 @@
 
 FROM alpine:latest
 
+EXPOSE 80
+
 ARG TARGETARCH
 
 RUN apk add --no-cache \
