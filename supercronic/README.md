@@ -1,5 +1,7 @@
 # Supercronic
 
+[![Docker Pulls](https://img.shields.io/docker/pulls/gutenye/supercronic?style=flat-square)](https://hub.docker.com/r/gutenye/supercronic)
+
 > [Supercronic](https://github.com/aptible/supercronic)
 
 ## Features
@@ -20,8 +22,7 @@ docker compose up -d
 
 edit data/config/crontab
 	* * * * * echo 1
-	auto reload changes
+	# auto reload changes
 
 Open localhost:3000
-
 ```

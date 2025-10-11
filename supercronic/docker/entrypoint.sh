@@ -1,6 +1,6 @@
 #!/usr/bin/env sh
 
-if [ -z "$(ls -A . 2>/dev/null)" ]; then
+if [ -z "$(ls -A /config 2>/dev/null)" ]; then
   cp -r /config-template/* /config
 fi
 
