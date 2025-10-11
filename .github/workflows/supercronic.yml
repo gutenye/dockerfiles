@@ -8,14 +8,6 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
-    strategy:
-      fail-fast: false
-      matrix:
-        include:
-          - platform: linux/amd64
-            suffix: amd64
-          - platform: linux/arm64
-            suffix: arm64
     steps:
       - uses: actions/checkout@v4
 
@@ -37,7 +29,7 @@ jobs:
       - name: Build image
         uses: whoan/docker-build-with-cache-action@v5
         with:
-          compose_file: compose.yml
+          compose_file: supercronic/compose.yml
           username: ${{secrets.DOCKERHUB_USERNAME}}
           password: ${{secrets.DOCKERHUB_TOKEN}}
           # registry: docker.io
