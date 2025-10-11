@@ -18,10 +18,10 @@ jobs:
         uses: actions/github-script@v7
         with:
           script: |
-            const nodePath = require('node:path')
+            const { dirname, basename } = require('node:path')
             const globber = await glob.create('*/Dockerfile')
             const files = await globber.glob()
-            const matrix = files.map(file => ({ name: nodePath.basename(file) }))
+            const matrix = files.map(file => ({ name: dirname(basename(file)) }))
             core.setOutput('matrix', JSON.stringify(matrix))
 
   build:
