@@ -12,9 +12,6 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v5
 
-      # - name: Set up QEMU
-      #   uses: docker/setup-qemu-action@v3
-
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v3
 
@@ -32,15 +29,3 @@ jobs:
           platforms: linux/amd64,linux/arm64
           push: true
           tags: gutenye/supercronic:latest
-
-      # - name: Build image
-      #   uses: whoan/docker-build-with-cache-action@v8
-      #   with:
-      #     # compose_file: supercronic/compose.yml
-      #     context: supercronic
-      #     image_name: gutenye/supercronic
-      #     username: ${{secrets.DOCKERHUB_USERNAME}}
-      #     password: ${{secrets.DOCKERHUB_TOKEN}}
-          # build_extra_args: --pull --platform=${{ matrix.platform }}
-          # build_extra_args: --platform=linux/amd64,linux/arm64
-
