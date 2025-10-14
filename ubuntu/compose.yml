@@ -1,0 +1,7 @@
+services:
+  app:
+    image: gutenye/ubuntu
+    build:
+      platforms:
+        - linux/arm64
+        - linux/amd64
