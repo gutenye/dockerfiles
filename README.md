@@ -12,3 +12,7 @@
 | -------------------------------------- | -------------------------- |
 | [Alpine](./alpine/README.md)           | Add curl etc for debugging |
 | [Supercronic](./supercronic/README.md) | cron job                   |
+
+## Publish
+
+- Use github actions. Local build has different image id. 
