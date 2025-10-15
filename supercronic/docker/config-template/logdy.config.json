@@ -46,6 +46,6 @@
 		"drawerColWidth": 900,
 		"maxMessages": 1000,
 		"middlewares": [],
-		"entriesOrder": "desc"
+		"entriesOrder": "asc"
 	}
 }
