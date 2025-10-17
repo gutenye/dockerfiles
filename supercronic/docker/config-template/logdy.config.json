@@ -44,7 +44,7 @@
 	"settings": {
 		"leftColWidth": 241,
 		"drawerColWidth": 900,
-		"maxMessages": 1000,
+		"maxMessages": 10000,
 		"middlewares": [],
 		"entriesOrder": "asc"
 	}
