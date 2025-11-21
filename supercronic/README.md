@@ -6,24 +6,28 @@
 
 ## Features
 
-- Web UI with logdy
 - Added packages: curl, ca-certificates, tzdata
 
 ## Getting Started
 
+edit crontab
+
 ```sh
-vi Dockerfile
-	FROM gutenye/supercronic
-	...
+* * * * * echo 1
+```
 
-cp compose.yml
+edit compose.yml
 
-docker compose up -d
-	# created config files
+```yaml
+services:
+  app:
+    image: gutenye/supercronic
+    volumes:
+      - ./crontab:/crontab
+```
 
-edit data/config/crontab
-	* * * * * echo 1
-	# auto reload changes
+start it
 
-Open localhost:3000
+```sh
+docker compose up
 ```

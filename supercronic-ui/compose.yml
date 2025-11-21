@@ -1,9 +1,11 @@
 services:
   app:
-    image: gutenye/supercronic
+    image: gutenye/supercronic-ui
     build:
       platforms:
         - linux/arm64
         - linux/amd64
+    ports:
+      - 3000:80
     volumes:
-      - ./data/crontab:/crontab
+      - ./data/config:/config
