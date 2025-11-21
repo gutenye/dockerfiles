@@ -6,7 +6,8 @@
 
 ## Features
 
-- Web UI with logs
+- Web UI with logdy
+- Added packages: curl, ca-certificates, tzdata
 
 ## Getting Started
 
