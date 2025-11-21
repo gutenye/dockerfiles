@@ -22,6 +22,7 @@ edit compose.yml
 services:
   app:
     image: gutenye/supercronic
+    tty: true
     volumes:
       - ./crontab:/crontab
 ```
