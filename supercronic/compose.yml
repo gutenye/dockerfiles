@@ -1,6 +1,8 @@
 services:
   app:
     image: gutenye/supercronic
+    entrypoint: /usr/bin/supercronic -json crontab
+    tty: true
     build:
       platforms:
         - linux/arm64

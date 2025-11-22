@@ -7,4 +7,4 @@ RUN apk add --no-cache \
 	
 COPY docker/crontab /crontab
 
-CMD ["/usr/bin/supercronic", "/crontab"]
+ENTRYPOINT ["/usr/bin/supercronic", "/crontab"]

@@ -22,6 +22,7 @@ edit compose.yml
 services:
   app:
     image: gutenye/supercronic
+		command: --json 
     tty: true
     volumes:
       - ./crontab:/crontab
@@ -31,4 +32,5 @@ start it
 
 ```sh
 docker compose up
+docker compose logs -f --no-log-prefix app | bunx pino-pretty --include time,level,msg
 ```
