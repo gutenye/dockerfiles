@@ -4,33 +4,36 @@
 [![Docker Pulls](https://img.shields.io/docker/pulls/gutenye/supercronic?style=flat-square)](https://hub.docker.com/r/gutenye/supercronic)
 [![Supercronic](https://img.shields.io/badge/supercronic-gray?style=flat-square)](https://github.com/aptible/supercronic)
 
+## Screenshots
+
+![screenshot](./screenshots/screenshot1.png)
+
 ## Features
 
+- Human-friendly log messages
+- Added pino-pretty
 - Added packages: curl, ca-certificates, tzdata
 
 ## Getting Started
 
-edit crontab
+Edit crontab
 
 ```sh
 * * * * * echo 1
 ```
 
-edit compose.yml
+Edit compose.yml
 
 ```yaml
 services:
   app:
     image: gutenye/supercronic
-		command: --json 
-    tty: true
     volumes:
       - ./crontab:/crontab
 ```
 
-start it
+Run it
 
 ```sh
 docker compose up
-docker compose logs -f --no-log-prefix app | bunx pino-pretty --include time,level,msg
 ```

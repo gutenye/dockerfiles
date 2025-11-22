@@ -1,0 +1,3 @@
+#!/usr/bin/env sh
+
+exec /usr/bin/supercronic -json /crontab 2>&1 | pino-pretty --messageFormat '{if job\\.command}[{job\\.command}] {end}{msg}' --customLevels 'warning:40' --useOnlyCustomProps false --hideObject "$@"
