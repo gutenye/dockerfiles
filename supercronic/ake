@@ -1,15 +1,7 @@
-#!/usr/bin/env script.js
+#!/usr/bin/env bun
 
-const HELP = `
-`
+import { app, $ } from "@gutenye/script.js";
 
-app
-  .name(PROJECT_NAME)
-  .enableCompletion()
-  .addHelpText('after', HELP.trimEnd())
-
-app
-  .command('publish')
-  .action(async () => {
-    $`docker compose build --push`
-  })
+app.cmd("publish", "Publish docker image").add(async () => {
+  await $`docker compose build --push`;
+});

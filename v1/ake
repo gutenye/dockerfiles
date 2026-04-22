@@ -1,17 +1,24 @@
-#!/usr/bin/env bash
+#!/usr/bin/env bun
 
-build() {
-  NAME=${NAME-$1}
-  docker build -t $NAME .
-}
+import { app, $ } from "@gutenye/script.js";
 
-push() {
-  NAME=${NAME-$1}
-  git push origin master:$NAME
-  git push
-}
+const { NAME: ENV_NAME } = process.env;
 
-case "$1" in
-  b | build ) shift; build "$@" ;;
-  push ) shift; push "$@" ;;
-esac
+app
+  .cmd("b, build", "Build image")
+  .add("[name]", "Image name")
+  .add(async (name) => {
+    const imageName = ENV_NAME ?? name;
+    await $`docker build -t ${imageName} .`;
+  });
+
+app
+  .cmd("push", "Push to remote")
+  .add("[name]", "Branch name")
+  .add(async (name) => {
+    const branch = ENV_NAME ?? name;
+    await $`
+      git push origin master:${branch}
+      git push
+    `;
+  });

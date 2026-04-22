@@ -1,5 +1,9 @@
-#!/usr/bin/env bash
+#!/usr/bin/env bun
 
-export NAME="spree"
+import { app, $ } from "@gutenye/script.js";
 
-../ake "$@"
+process.env.NAME = "spree";
+
+app.cmd().add(async ({ argv }) => {
+  await $`../ake ${argv}`;
+});

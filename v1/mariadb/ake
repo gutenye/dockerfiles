@@ -1,4 +1,7 @@
-#!/usr/bin/env bash
+#!/usr/bin/env bun
 
-NAME="gutenye/mariadb"
-docker build -t "$NAME" .
+import { app, $ } from "@gutenye/script.js";
+
+app.cmd().add(async () => {
+  await $`docker build -t gutenye/mariadb .`;
+});

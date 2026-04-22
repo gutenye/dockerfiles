@@ -1,15 +1,14 @@
-#!/usr/bin/env bash
+#!/usr/bin/env bun
 
-build() {
-  docker build -t gutenye/rtorrent-flood:arm .
-}
+import { app, $ } from "@gutenye/script.js";
 
-push() {
-  git push origin master:rtorrent-flood
-  git push
-}
+app.cmd("b, build", "Build arm image").add(async () => {
+  await $`docker build -t gutenye/rtorrent-flood:arm .`;
+});
 
-case "$1" in
-  b | build ) shift; build "$@" ;;
-  push ) shift; push "$@" ;;
-esac
+app.cmd("push", "Push to remote").add(async () => {
+  await $`
+    git push origin master:rtorrent-flood
+    git push
+  `;
+});

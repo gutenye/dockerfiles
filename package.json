@@ -1,0 +1,7 @@
+{
+  "name": "dockerfiles",
+  "private": true,
+  "devDependencies": {
+    "@gutenye/script.js": "^7.2.1"
+  }
+}

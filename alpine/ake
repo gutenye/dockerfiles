@@ -1,6 +1,7 @@
-#!/usr/bin/env bash
+#!/usr/bin/env bun
 
-case "$1" in
-  push ) docker compose build --push ;;
-esac
+import { app, $ } from "@gutenye/script.js";
 
+app.cmd("push", "Build and push image").add(async () => {
+  await $`docker compose build --push`;
+});

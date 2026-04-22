@@ -1,15 +1,11 @@
-#!/usr/bin/env script.js
+#!/usr/bin/env bun
 
-const HELP = `
-`
+import { app, $ } from "@gutenye/script.js";
 
-app
-  .name(PROJECT_NAME)
-  .enableCompletion()
-  .addHelpText('after', HELP.trimEnd())
+// `ake` is symlinked into sibling dirs (e.g. supercronic-ui); capture the
+// caller's cwd so commands run in the invoking dir, not in dockerfiles/.
+$.cwd(process.cwd());
 
-app
-  .command('publish')
-  .action(async () => {
-    $`docker compose build --push`
-  })
+app.cmd("publish", "Publish docker images").add(async () => {
+  await $`docker compose build --push`;
+});
